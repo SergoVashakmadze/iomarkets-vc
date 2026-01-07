@@ -1,6 +1,6 @@
 import React from 'react';
 import { Helmet } from 'react-helmet';
-import { Rocket, Target, TrendingUp, Users, Globe, Zap, ArrowRight, Building, Lightbulb, Award, CheckCircle, BarChart3, Network, Sparkles, DollarSign, Eye, Brain, Handshake, Scale, ChevronRight, Star, Shield } from 'lucide-react';
+import { Rocket, Target, TrendingUp, Users, Globe, Building, Lightbulb, Award, CheckCircle, BarChart3, Network, Sparkles, DollarSign, Eye, Brain, Handshake, Scale, ChevronRight, Star, Shield } from 'lucide-react';
 
 const IoMarketsVC: React.FC = () => {
   return (
