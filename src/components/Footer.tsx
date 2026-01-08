@@ -1,152 +1,95 @@
 import { Link } from 'react-router-dom';
-import { Twitter, Github, Mail, ExternalLink, Linkedin } from 'lucide-react';
-
-const footerLinks = {
-  ecosystem: [
-    { name: 'IoMarkets.io', href: 'https://iomarkets.io', external: true },
-    { name: 'IoMarkets.money', href: 'https://iomarkets.money', external: true },
-    { name: 'IoMarkets.xyz', href: 'https://iomarkets.xyz', external: true },
-    { name: 'IoMarkets.com', href: 'https://iomarkets.com', external: true },
-  ],
-  company: [
-    { name: 'About', href: '#about' },
-    { name: 'Careers', href: '#careers' },
-    { name: 'Contact', href: '#contact' },
-  ],
-  resources: [
-    { name: 'IoMarkets.ai', href: 'https://iomarkets.ai', external: true },
-    { name: 'IoMarkets.news', href: 'https://iomarkets.news', external: true },
-    { name: 'IoMarkets.tech', href: 'https://iomarkets.tech', external: true },
-  ],
-  legal: [
-    { name: 'Privacy Policy', href: '#privacy' },
-    { name: 'Terms of Service', href: '#terms' },
-  ],
-};
+import { Twitter, Linkedin, Facebook, Youtube } from 'lucide-react';
 
 const socialLinks = [
-  { name: 'Twitter', href: 'https://twitter.com/iomarkets', icon: Twitter },
-  { name: 'LinkedIn', href: 'https://linkedin.com/company/iomarkets', icon: Linkedin },
-  { name: 'GitHub', href: 'https://github.com/iomarkets', icon: Github },
-  { name: 'Email', href: 'mailto:info@iomarkets.org', icon: Mail },
+  { name: 'Twitter (X)', href: 'https://x.com/IoMarkets', icon: Twitter },
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/company/109605371/', icon: Linkedin },
+  { name: 'Facebook', href: 'https://www.facebook.com/IoMarkets/', icon: Facebook },
+  { name: 'YouTube', href: 'https://youtu.be/Jj8Hx4rACOU', icon: Youtube },
 ];
 
 export function Footer() {
+  const currentYear = new Date().getFullYear();
+
   return (
-    <footer className="bg-slate-900 border-t border-slate-800">
+    <footer className="relative bg-gradient-to-br from-slate-50 to-blue-50 border-t border-slate-200 shadow-lg">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 lg:gap-8">
-          {/* Logo and Description - Takes 2 columns on lg */}
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-3 mb-6 group">
-              <div className="w-12 h-12 rounded-lg overflow-hidden relative border border-slate-700/50 group-hover:border-slate-500/50 transition-all flex items-center justify-center bg-slate-800">
-                <img
-                  src="/images/IoMarkets_Logo.png"
-                  alt="IoMarkets"
-                  className="w-10 h-10 object-contain"
-                />
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-8 mb-12">
+          {/* Brand Section */}
+          <div>
+            <Link to="/" className="flex items-center gap-3 mb-6">
+              <div className="w-11 h-11 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:scale-110 hover:shadow-xl">
+                <img src="/images/IoMarkets_Logo.png" alt="IoMarkets" className="w-full h-full object-cover" />
               </div>
-              <div className="flex items-center">
-                <span className="text-2xl font-bold text-white">IoMarkets</span>
-                <span className="text-amber-500 text-2xl font-bold">®</span>
+              <div>
+                <h3 className="text-xl font-bold bg-gradient-to-r from-cyan-600 to-blue-600 bg-clip-text text-transparent tracking-tight leading-none">
+                  IoMarkets<sup className="text-xs">®</sup>
+                </h3>
               </div>
             </Link>
-            <p className="text-gray-400 mb-4 max-w-sm leading-relaxed">
-              The most holistic AI-powered Web3 financial ecosystem powering the future of capital markets.
+            <p className="text-gray-700 text-sm font-light leading-relaxed mb-3">
+              Venture Capital Investment Fund.
             </p>
-            <p className="text-gray-500 text-sm mb-8">
-              IoMarkets® LLC<br />
-              30 N Gould St Ste R<br />
-              Sheridan, Wyoming 82801
+            <p className="text-gray-600 text-sm font-light">
+              Email: <a href="mailto:info@iomarkets.org" className="text-cyan-600 hover:text-cyan-500 transition-colors">info@iomarkets.org</a>
             </p>
-            <div className="flex items-center gap-3">
+          </div>
+
+          {/* IoMarkets LLC */}
+          <div>
+            <h4 className="text-sm font-semibold text-cyan-600 mb-4 tracking-wide">IoMarkets<sup className="text-xs">®</sup> LLC</h4>
+            <p className="text-gray-600 text-sm font-light leading-relaxed">
+              30 N Gould St Ste R,<br />
+              Sheridan, Sheridan County,<br />
+              WY 82801,<br />
+              USA
+            </p>
+          </div>
+
+          {/* IoMarkets UG */}
+          <div>
+            <h4 className="text-sm font-semibold text-cyan-600 mb-4 tracking-wide">IoMarkets<sup className="text-xs">®</sup> UG</h4>
+            <p className="text-gray-600 text-sm font-light leading-relaxed">
+              Weningstrasse 8,<br />
+              94405 Landau,<br />
+              Germany
+            </p>
+          </div>
+
+          {/* IoMarkets Ltd */}
+          <div>
+            <h4 className="text-sm font-semibold text-blue-600 mb-4 tracking-wide">IoMarkets<sup className="text-xs">®</sup> Ltd</h4>
+            <p className="text-gray-600 text-sm font-light leading-relaxed">
+              20-22 Wenlock Road<br />
+              London, N1 7GU<br />
+              United Kingdom
+            </p>
+          </div>
+
+          {/* IoMarkets WLL */}
+          <div>
+            <h4 className="text-sm font-semibold text-blue-600 mb-4 tracking-wide">IoMarkets<sup className="text-xs">®</sup> WLL</h4>
+            <p className="text-gray-600 text-sm font-light leading-relaxed">
+              Office No. 1002, Building 1260, Road 2421, Block 324, Juffair<br />
+              Manama / Al Fateh<br />
+              Kingdom of Bahrain
+            </p>
+          </div>
+
+          {/* Follow Us */}
+          <div>
+            <h4 className="text-sm font-semibold text-cyan-600 mb-4 tracking-wide">Follow Us</h4>
+            <ul className="space-y-3 text-sm">
               {socialLinks.map((social) => (
-                <a
-                  key={social.name}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl bg-slate-800 text-gray-400 hover:text-white hover:bg-slate-700 transition-all flex items-center justify-center"
-                  aria-label={social.name}
-                >
-                  <social.icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Ecosystem Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">
-              Ecosystem
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.ecosystem.map((link) => (
-                <li key={link.name}>
+                <li key={social.name}>
                   <a
-                    href={link.href}
+                    href={social.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1.5"
+                    className="text-gray-600 hover:text-cyan-600 transition-colors font-light flex items-center gap-2"
                   >
-                    {link.name}
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Company Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">
-              Company
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.company.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
-                  </a>
-                </li>
-              ))}
-            </ul>
-          </div>
-
-          {/* Resources & Legal Combined */}
-          <div>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">
-              Resources
-            </h4>
-            <ul className="space-y-4 mb-8">
-              {footerLinks.resources.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-gray-400 hover:text-white transition-colors inline-flex items-center gap-1.5"
-                  >
-                    {link.name}
-                    <ExternalLink className="w-3.5 h-3.5" />
-                  </a>
-                </li>
-              ))}
-            </ul>
-            <h4 className="text-sm font-semibold text-white uppercase tracking-wider mb-6">
-              Legal
-            </h4>
-            <ul className="space-y-4">
-              {footerLinks.legal.map((link) => (
-                <li key={link.name}>
-                  <a
-                    href={link.href}
-                    className="text-gray-400 hover:text-white transition-colors"
-                  >
-                    {link.name}
+                    <social.icon className="h-4 w-4" />
+                    {social.name}
                   </a>
                 </li>
               ))}
@@ -154,23 +97,21 @@ export function Footer() {
           </div>
         </div>
 
-        {/* Bottom Bar */}
-        <div className="mt-16 pt-8 border-t border-slate-800">
-          <div className="text-center mb-4">
-            <p className="text-sm font-semibold text-gray-400">
-              Built with ❤️ by{' '}
-              <a
-                href="https://www.linkedin.com/in/sergovashakmadze/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-gray-400 hover:text-white hover:underline transition-colors"
-              >
-                Sergo Vashakmadze
-              </a>
-            </p>
-          </div>
-          <p className="text-sm text-center text-gray-500">
-            &copy; 2025 IoMarkets<sup>&reg;</sup> All rights reserved
+        {/* Bottom Section */}
+        <div className="pt-8 border-t border-slate-200">
+          <p className="text-center text-base font-semibold text-gray-700 mb-2">
+            Built with ❤️ by{' '}
+            <a
+              href="https://www.linkedin.com/in/sergovashakmadze/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:underline text-cyan-600"
+            >
+              Sergo Vashakmadze
+            </a>
+          </p>
+          <p className="text-center text-sm text-gray-600 font-light">
+            © {currentYear} IoMarkets<sup className="text-xs">®</sup> All rights reserved
           </p>
         </div>
       </div>

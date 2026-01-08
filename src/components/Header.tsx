@@ -44,8 +44,8 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <nav className="flex items-center justify-between h-16">
             <Link to="/" className="flex items-center gap-3 group">
-              <div className="w-12 h-12 rounded-lg overflow-hidden border border-slate-700/50 group-hover:border-slate-500/50 transition-all flex items-center justify-center bg-slate-800">
-                <img src="/images/IoMarkets_Logo.png" alt="IoMarkets" className="w-10 h-10 object-contain" />
+              <div className="w-11 h-11 rounded-xl overflow-hidden shadow-md transition-all duration-300 hover:scale-110 hover:shadow-xl">
+                <img src="/images/IoMarkets_Logo.png" alt="IoMarkets" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col">
                 <div className="flex items-center">
