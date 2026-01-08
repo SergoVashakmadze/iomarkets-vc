@@ -66,16 +66,17 @@
   background: linear-gradient(135deg, #0A0F0D 0%, #0D1512 25%, #121B17 50%, #0D1512 75%, #0A0F0D 100%);
 }
 
-/* Hero gradient - deep dark with teal undertones */
+/* Hero gradient - vibrant with teal/emerald undertones */
 .hero-gradient-bg {
   background: linear-gradient(
     135deg,
-    #070A09 0%,
-    #0A0F0D 20%,
-    #0D1512 40%,
-    #101815 60%,
-    #0D1512 80%,
-    #0A0F0D 100%
+    #021a14 0%,
+    #042f22 20%,
+    #0a2e24 35%,
+    #0d1f1a 50%,
+    #082d20 65%,
+    #041f16 80%,
+    #02150f 100%
   );
 }
 
@@ -112,22 +113,22 @@
   }
 }
 
-/* Hero orb effect - multi-color dynamic */
+/* Hero orb effect - multi-color dynamic VIBRANT */
 .orb-hero {
-  opacity: 0.12;
-  filter: blur(120px);
+  opacity: 0.4;
+  filter: blur(90px);
   border-radius: 50%;
-  animation: orb-hero-pulse 10s ease-in-out infinite;
+  animation: orb-hero-pulse 8s ease-in-out infinite;
 }
 
 @keyframes orb-hero-pulse {
   0%, 100% {
-    transform: scale(1);
-    opacity: 0.1;
+    transform: scale(1) translateY(0);
+    opacity: 0.35;
   }
   50% {
-    transform: scale(1.2);
-    opacity: 0.18;
+    transform: scale(1.15) translateY(-15px);
+    opacity: 0.5;
   }
 }
 
