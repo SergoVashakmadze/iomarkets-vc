@@ -21,16 +21,24 @@ const ecosystemDomains = [
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
-  const ecosystemRef = useRef<HTMLDivElement>(null);
+  const ecosystemDesktopRef = useRef<HTMLDivElement>(null);
+  const ecosystemMobileRef = useRef<HTMLDivElement>(null);
 
+  // Close dropdowns when clicking outside
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
-      if (ecosystemRef.current && !ecosystemRef.current.contains(event.target as Node)) {
+      const target = event.target as Node;
+      const isOutsideDesktop = ecosystemDesktopRef.current && !ecosystemDesktopRef.current.contains(target);
+      const isOutsideMobile = ecosystemMobileRef.current && !ecosystemMobileRef.current.contains(target);
+
+      if ((isOutsideDesktop || !ecosystemDesktopRef.current) &&
+          (isOutsideMobile || !ecosystemMobileRef.current)) {
         setEcosystemOpen(false);
       }
     }
-    document.addEventListener('mousedown', handleClickOutside);
-    return () => document.removeEventListener('mousedown', handleClickOutside);
+
+    document.addEventListener('click', handleClickOutside);
+    return () => document.removeEventListener('click', handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -57,7 +65,7 @@ export function Header() {
             </Link>
 
             <div className="hidden lg:flex items-center gap-4">
-              <div ref={ecosystemRef} className="relative">
+              <div ref={ecosystemDesktopRef} className="relative">
                 <button onClick={() => setEcosystemOpen(!ecosystemOpen)} className="flex items-center gap-2 px-6 py-2.5 rounded-full text-white text-sm font-medium bg-slate-800 border border-slate-700 hover:bg-slate-700">
                   IoMarkets Ecosystem
                   <ChevronDown className={`w-4 h-4 transition-transform ${ecosystemOpen ? 'rotate-180' : ''}`} />
@@ -66,7 +74,20 @@ export function Header() {
                   <div className="absolute top-full right-0 mt-2 w-80 max-h-[70vh] overflow-y-auto rounded-2xl bg-slate-800 border border-slate-700 shadow-xl z-50">
                     <div className="p-2">
                       {ecosystemDomains.map((domain) => (
-                        <a key={domain.name} href={domain.current ? '/' : domain.url} className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg transition-colors hover:bg-slate-700 ${domain.current ? 'bg-slate-700 border-r-2 border-amber-500' : ''}`}>
+                        <a
+                          key={domain.name}
+                          href={domain.current ? '/' : domain.url}
+                          target={domain.current ? undefined : '_blank'}
+                          rel={domain.current ? undefined : 'noopener noreferrer'}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setEcosystemOpen(false);
+                            if (!domain.current) {
+                              window.open(domain.url, '_blank', 'noopener,noreferrer');
+                            }
+                          }}
+                          className={`flex items-center gap-3 px-3.5 py-2.5 rounded-lg transition-colors hover:bg-slate-700 ${domain.current ? 'bg-slate-700 border-r-2 border-amber-500' : ''}`}
+                        >
                           <span className="text-lg flex-shrink-0">{domain.icon}</span>
                           <div className="flex-1 min-w-0">
                             <p className={`text-sm font-medium truncate ${domain.current ? 'text-white' : 'text-gray-200'}`}>{domain.name}</p>
@@ -81,13 +102,26 @@ export function Header() {
             </div>
 
             <div className="lg:hidden flex items-center gap-2">
-              <div ref={ecosystemRef} className="relative">
+              <div ref={ecosystemMobileRef} className="relative">
                 <button onClick={() => setEcosystemOpen(!ecosystemOpen)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-xs font-medium bg-slate-800 border border-slate-700">Ecosystem</button>
                 {ecosystemOpen && (
                   <div className="absolute top-full right-0 mt-2 w-72 max-h-[60vh] overflow-y-auto rounded-2xl bg-slate-800 border border-slate-700 shadow-xl z-50">
                     <div className="p-2">
                       {ecosystemDomains.map((domain) => (
-                        <a key={domain.name} href={domain.current ? '/' : domain.url} className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors hover:bg-slate-700 ${domain.current ? 'bg-slate-700 border-r-2 border-amber-500' : ''}`}>
+                        <a
+                          key={domain.name}
+                          href={domain.current ? '/' : domain.url}
+                          target={domain.current ? undefined : '_blank'}
+                          rel={domain.current ? undefined : 'noopener noreferrer'}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            setEcosystemOpen(false);
+                            if (!domain.current) {
+                              window.open(domain.url, '_blank', 'noopener,noreferrer');
+                            }
+                          }}
+                          className={`flex items-center gap-3 px-3 py-2 rounded-lg transition-colors hover:bg-slate-700 ${domain.current ? 'bg-slate-700 border-r-2 border-amber-500' : ''}`}
+                        >
                           <span className="text-base flex-shrink-0">{domain.icon}</span>
                           <div className="flex-1 min-w-0">
                             <p className={`text-xs font-medium truncate ${domain.current ? 'text-white' : 'text-gray-200'}`}>{domain.name}</p>
