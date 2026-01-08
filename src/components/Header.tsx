@@ -15,7 +15,7 @@ const ecosystemDomains = [
   { name: 'IoMarkets.tv', subtitle: 'Global Financial News Television', url: 'https://iomarkets.tv', icon: '📺' },
   { name: 'IoMarkets.news', subtitle: 'Global Online Financial News', url: 'https://iomarkets.news', icon: '📰' },
   { name: 'IoMarkets.tech', subtitle: 'Financial Technology Solutions', url: 'https://iomarkets.tech', icon: '⚙️' },
-  { name: 'DipBuyer AI', subtitle: 'AI-Powered Dip Buying Assistant', url: 'https://dipbuyer.ai', icon: '🎯' },
+  { name: 'DipBuyer AI', subtitle: 'AI Agent for Value Investing', url: 'https://dipbuyer.ai', icon: '🎯' },
 ];
 
 export function Header() {
