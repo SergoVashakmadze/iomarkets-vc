@@ -1,7 +1,0 @@
-# Serve static SEO files directly (exclude from SPA routing)
-/robots.txt   /robots.txt   200!
-/sitemap.xml  /sitemap.xml  200!
-/googlea*.html  200!
-
-# SPA fallback for all other routes
-/*    /index.html   200
