@@ -22,13 +22,13 @@ export function TickerTape() {
     script.type = 'text/javascript';
     script.innerHTML = JSON.stringify({
       symbols: [
-        { proName: 'BINANCE:BTCUSDT', title: 'BTC/USDT' },
-        { proName: 'BINANCE:ETHUSDT', title: 'ETH/USDT' },
-        { proName: 'BINANCE:SOLUSDT', title: 'SOL/USDT' },
-        { proName: 'INDEX:SPX', title: 'S&P 500' },
-        { proName: 'INDEX:DJI', title: 'Dow Jones' },
-        { proName: 'FX_IDC:EURUSD', title: 'EUR/USD' },
-        { proName: 'CRYPTOCAP:USDC', title: 'USDC' },
+        { proName: 'FOREXCOM:SPXUSD', title: 'S&P 500' },
+        { proName: 'FOREXCOM:NSXUSD', title: 'Nasdaq 100' },
+        { proName: 'FOREXCOM:DJI', title: 'Dow Jones' },
+        { proName: 'FX:EURUSD', title: 'EUR/USD' },
+        { proName: 'BITSTAMP:BTCUSD', title: 'Bitcoin' },
+        { proName: 'BITSTAMP:ETHUSD', title: 'Ethereum' },
+        { proName: 'CMCMARKETS:GOLD', title: 'Gold' },
       ],
       showSymbolLogo: true,
       isTransparent: true,
