@@ -122,11 +122,11 @@ const IoMarketsVC: React.FC = () => {
         <div className="absolute inset-0 elegant-grid" />
         <div className="absolute inset-0 diamond-pattern" />
 
-        {/* Multi-color Orbs - Investment Teal/Emerald Theme */}
-        <div className="absolute top-0 left-[15%] w-[600px] h-[600px] bg-[#14B8A6] orb-hero" />
-        <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-[#10B981] orb-hero" style={{ animationDelay: '1s' }} />
-        <div className="absolute bottom-[10%] left-[5%] w-[450px] h-[450px] bg-[#06B6D4] orb-hero" style={{ animationDelay: '2s' }} />
-        <div className="absolute top-[40%] right-[25%] w-[350px] h-[350px] bg-[#22C55E] orb-hero" style={{ animationDelay: '3s' }} />
+        {/* Multi-color Orbs - Vibrant Blue/Indigo Theme */}
+        <div className="absolute top-0 left-[15%] w-[600px] h-[600px] bg-[#3B82F6] orb-hero" />
+        <div className="absolute top-[20%] right-[10%] w-[500px] h-[500px] bg-[#6366F1] orb-hero" style={{ animationDelay: '1s' }} />
+        <div className="absolute bottom-[10%] left-[5%] w-[450px] h-[450px] bg-[#8B5CF6] orb-hero" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-[40%] right-[25%] w-[350px] h-[350px] bg-[#06B6D4] orb-hero" style={{ animationDelay: '3s' }} />
 
         {/* Floating Elements */}
         <FloatingElements />
@@ -135,7 +135,7 @@ const IoMarketsVC: React.FC = () => {
         <AnimatedLines />
 
         {/* Gradient overlay for depth */}
-        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0A0F0D]/80" />
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-[#0F172A]/80" />
 
         <div className="container mx-auto px-6 relative z-10 min-h-screen flex items-center">
           <div className="max-w-5xl mx-auto w-full">
@@ -252,7 +252,7 @@ const IoMarketsVC: React.FC = () => {
         </motion.div>
 
         {/* Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0F0D] to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0F172A] to-transparent" />
       </motion.section>
 
       {/* Investment Philosophy */}
