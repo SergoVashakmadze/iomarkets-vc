@@ -234,6 +234,23 @@ const IoMarketsVC: React.FC = () => {
           </div>
         </div>
 
+        {/* Scroll indicator */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ delay: 1 }}
+          className="absolute bottom-10 left-1/2 -translate-x-1/2 flex flex-col items-center gap-3 z-10"
+        >
+          <span className="text-sm font-medium text-gray-400">Scroll to explore</span>
+          <div className="w-7 h-12 rounded-full border-2 border-[#14B8A6]/60 flex justify-center pt-2 shadow-lg shadow-[#14B8A6]/20">
+            <motion.div
+              animate={{ y: [0, 10, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity }}
+              className="w-2 h-2 rounded-full bg-[#2DD4BF]"
+            />
+          </div>
+        </motion.div>
+
         {/* Bottom gradient fade */}
         <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-[#0A0F0D] to-transparent" />
       </motion.section>
