@@ -10,7 +10,9 @@ export default function App() {
       <div className="min-h-screen flex flex-col">
         <TickerTape />
         <Header />
-        <main className="flex-1 content-padding">
+        {/* Spacer for fixed header + ticker */}
+        <div className="h-[110px]" />
+        <main className="flex-1">
           <Routes>
             <Route path="/" element={<Home />} />
           </Routes>
