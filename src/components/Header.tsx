@@ -1,25 +1,24 @@
-import { useState, useEffect, useRef } from 'react';
+﻿import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import { Menu, X, ChevronDown } from 'lucide-react';
+import { ChevronDown } from 'lucide-react';
 
 const ecosystemDomains = [
-  { name: 'IoMarkets.org', subtitle: 'Organization', url: 'https://iomarkets.org', icon: '🏛️' },
-  { name: 'IoMarkets.io', subtitle: 'AI-Powered Web3 Capital Markets', url: 'https://iomarkets.io', icon: '📈' },
-  { name: 'IoMarkets.money', subtitle: 'Digital Money, Stablecoins & Payments', url: 'https://iomarkets.money', icon: '💰' },
-  { name: 'IoMarkets.xyz', subtitle: 'Digital Collectibles & NFT Platform', url: 'https://iomarkets.xyz', icon: '🎨' },
-  { name: 'IoMarkets.pro', subtitle: 'Universal Exchange - Pro Trading Suite', url: 'https://iomarkets.pro', icon: '💹' },
-  { name: 'IoMarkets.ai', subtitle: 'AI-Powered Markets Intelligence', url: 'https://iomarkets.ai', icon: '🤖' },
-  { name: 'IoMarkets.co', subtitle: 'Corporate Finance & Investor Relations', url: 'https://iomarkets.co', icon: '🏢' },
-  { name: 'IoMarkets.vc', subtitle: 'Venture Capital Investment Fund', url: 'https://iomarkets.vc', icon: '🚀', current: true },
-  { name: 'IoMarkets.fund', subtitle: 'Asset Management', url: 'https://iomarkets.fund', icon: '📊' },
-  { name: 'IoMarkets.tv', subtitle: 'Global Financial News Television', url: 'https://iomarkets.tv', icon: '📺' },
-  { name: 'IoMarkets.news', subtitle: 'Global Online Financial News', url: 'https://iomarkets.news', icon: '📰' },
-  { name: 'IoMarkets.tech', subtitle: 'Financial Technology Solutions', url: 'https://iomarkets.tech', icon: '⚙️' },
-  { name: 'DipBuyer AI', subtitle: 'AI Agent for Value Investing', url: 'https://dipbuyer.ai', icon: '🎯' },
+  { name: 'IoMarkets.org', subtitle: 'Organization', url: 'https://iomarkets.org', icon: 'ðŸ›ï¸' },
+  { name: 'IoMarkets.io', subtitle: 'AI-Powered Web3 Capital Markets', url: 'https://iomarkets.io', icon: 'ðŸ“ˆ' },
+  { name: 'IoMarkets.money', subtitle: 'Digital Money, Stablecoins & Payments', url: 'https://iomarkets.money', icon: 'ðŸ’°' },
+  { name: 'IoMarkets.xyz', subtitle: 'Digital Collectibles & NFT Platform', url: 'https://iomarkets.xyz', icon: 'ðŸŽ¨' },
+  { name: 'IoMarkets.pro', subtitle: 'Universal Exchange - Pro Trading Suite', url: 'https://iomarkets.pro', icon: 'ðŸ’¹' },
+  { name: 'IoMarkets.ai', subtitle: 'AI-Powered Markets Intelligence', url: 'https://iomarkets.ai', icon: 'ðŸ¤–' },
+  { name: 'IoMarkets.co', subtitle: 'Corporate Finance & Investor Relations', url: 'https://iomarkets.co', icon: 'ðŸ¢' },
+  { name: 'IoMarkets.vc', subtitle: 'Venture Capital Investment Fund', url: 'https://iomarkets.vc', icon: 'ðŸš€', current: true },
+  { name: 'IoMarkets.fund', subtitle: 'Asset Management', url: 'https://iomarkets.fund', icon: 'ðŸ“Š' },
+  { name: 'IoMarkets.tv', subtitle: 'Global Financial News Television', url: 'https://iomarkets.tv', icon: 'ðŸ“º' },
+  { name: 'IoMarkets.news', subtitle: 'Global Online Financial News', url: 'https://iomarkets.news', icon: 'ðŸ“°' },
+  { name: 'IoMarkets.tech', subtitle: 'Financial Technology Solutions', url: 'https://iomarkets.tech', icon: 'âš™ï¸' },
+  { name: 'DipBuyer AI', subtitle: 'AI Agent for Value Investing', url: 'https://dipbuyer.ai', icon: 'ðŸŽ¯' },
 ];
 
 export function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [ecosystemOpen, setEcosystemOpen] = useState(false);
   const ecosystemDesktopRef = useRef<HTMLDivElement>(null);
   const ecosystemMobileRef = useRef<HTMLDivElement>(null);
@@ -42,11 +41,7 @@ export function Header() {
   }, []);
 
   useEffect(() => {
-    document.body.style.overflow = mobileMenuOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileMenuOpen]);
-
-  return (
+      return (
     <>
       <header className="fixed top-[46px] left-0 right-0 z-50 bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -58,7 +53,7 @@ export function Header() {
               <div className="flex flex-col">
                 <div className="flex items-center">
                   <span className="text-xl font-bold text-white">IoMarkets</span>
-                  <span className="text-xl font-bold text-amber-500">®</span>
+                  <span className="text-xl font-bold text-amber-500">Â®</span>
                 </div>
                 <span className="text-[10px] text-cyan-400 -mt-0.5 uppercase tracking-wider font-bold">VENTURE CAPITAL</span>
               </div>
@@ -101,7 +96,7 @@ export function Header() {
               </div>
             </div>
 
-            <div className="lg:hidden flex items-center gap-2">
+            <div className="lg:hidden flex items-center">
               <div ref={ecosystemMobileRef} className="relative">
                 <button onClick={() => setEcosystemOpen(!ecosystemOpen)} className="flex items-center gap-1.5 px-3 py-1.5 rounded-full text-white text-xs font-medium bg-slate-800 border border-slate-700">Ecosystem</button>
                 {ecosystemOpen && (
@@ -133,27 +128,14 @@ export function Header() {
                   </div>
                 )}
               </div>
-              <button onClick={() => setMobileMenuOpen(true)} className="p-2 text-gray-300 hover:text-white"><Menu className="w-6 h-6" /></button>
-            </div>
+                          </div>
           </nav>
         </div>
       </header>
-      {mobileMenuOpen && (
-        <>
-          <div className="fixed inset-0 bg-black/50 z-[99998]" onClick={() => setMobileMenuOpen(false)} />
-          <div className="fixed top-0 right-0 bottom-0 w-[300px] max-w-[85vw] bg-slate-900 overflow-y-auto z-[99999]">
-            <div className="flex justify-end p-4">
-              <button onClick={() => setMobileMenuOpen(false)} className="p-2 text-gray-300 hover:text-white"><X className="w-6 h-6" /></button>
-            </div>
-            <nav className="px-4 pb-6">
-              <Link to="/" onClick={() => setMobileMenuOpen(false)} className="block px-4 py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-slate-800 rounded-lg">Home</Link>
-            </nav>
-          </div>
-        </>
-      )}
       <div className="h-[110px]" />
     </>
   );
 }
 
 export default Header;
+
