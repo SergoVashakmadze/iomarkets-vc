@@ -1,19 +1,10 @@
-import { useEffect, useState } from 'react';
+'use client';
 
-declare global {
-  namespace JSX {
-    interface IntrinsicElements {
-      'tv-ticker-tape': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
-        symbols?: string;
-        'hide-chart'?: boolean;
-        'item-size'?: string;
-      }, HTMLElement>;
-    }
-  }
-}
+import { useEffect, useState, useRef } from 'react';
 
 export function TickerTape() {
   const [mounted, setMounted] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const existingScript = document.querySelector('script[src*="tv-ticker-tape.js"]');
@@ -26,8 +17,18 @@ export function TickerTape() {
     setMounted(true);
   }, []);
 
+  useEffect(() => {
+    if (mounted && containerRef.current) {
+      containerRef.current.innerHTML = '';
+      const tickerElement = document.createElement('tv-ticker-tape');
+      tickerElement.setAttribute('symbols', 'FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,BITSTAMP:BTCUSD,BITSTAMP:ETHUSD,CMCMARKETS:GOLD');
+      containerRef.current.appendChild(tickerElement);
+    }
+  }, [mounted]);
+
   return (
     <div
+      ref={containerRef}
       style={{
         position: 'fixed',
         top: 0,
@@ -39,13 +40,7 @@ export function TickerTape() {
         zIndex: 60,
         overflow: 'hidden',
       }}
-    >
-      {mounted && (
-        <tv-ticker-tape
-          symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,BITSTAMP:BTCUSD,BITSTAMP:ETHUSD,CMCMARKETS:GOLD"
-        />
-      )}
-    </div>
+    />
   );
 }
 
