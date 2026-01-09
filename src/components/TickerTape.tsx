@@ -42,12 +42,18 @@ export function TickerTape() {
 
   if (!mounted) {
     return (
-      <div className="fixed top-0 left-0 right-0 z-[60] bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50 h-[46px]" />
+      <div
+        className="fixed top-0 left-0 right-0 z-[60] h-[46px]"
+        style={{ backgroundColor: '#131722', borderBottom: '1px solid #2a3550' }}
+      />
     );
   }
 
   return (
-    <div className="fixed top-0 left-0 right-0 z-[60] tradingview-widget-container bg-slate-900/95 backdrop-blur-md border-b border-slate-700/50">
+    <div
+      className="fixed top-0 left-0 right-0 z-[60] tradingview-widget-container"
+      style={{ backgroundColor: '#131722', borderBottom: '1px solid #2a3550' }}
+    >
       <div className="tradingview-widget-container__widget" ref={containerRef}></div>
     </div>
   );
