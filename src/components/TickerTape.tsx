@@ -1,60 +1,36 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useState } from 'react';
+
+declare global {
+  namespace JSX {
+    interface IntrinsicElements {
+      'tv-ticker-tape': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
+        symbols?: string;
+        'color-theme'?: string;
+        'is-transparent'?: string;
+        'display-mode'?: string;
+        locale?: string;
+      }, HTMLElement>;
+    }
+  }
+}
 
 export function TickerTape() {
   const [mounted, setMounted] = useState(false);
-  const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    // Load the TradingView web component script
+    const existingScript = document.querySelector('script[src*="tv-ticker-tape.js"]');
+    if (!existingScript) {
+      const script = document.createElement('script');
+      script.type = 'module';
+      script.src = 'https://widgets.tradingview-widget.com/w/en/tv-ticker-tape.js';
+      document.head.appendChild(script);
+    }
     setMounted(true);
   }, []);
 
-  useEffect(() => {
-    if (!mounted || !widgetRef.current) return;
-
-    // Clear previous content
-    widgetRef.current.innerHTML = '';
-
-    // Create widget container
-    const widgetContainer = document.createElement('div');
-    widgetContainer.className = 'tradingview-widget-container__widget';
-
-    // Create and configure script
-    const script = document.createElement('script');
-    script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
-    script.async = true;
-    script.type = 'text/javascript';
-    script.innerHTML = JSON.stringify({
-      symbols: [
-        { proName: 'FOREXCOM:SPXUSD', title: 'S&P 500' },
-        { proName: 'FOREXCOM:NSXUSD', title: 'Nasdaq 100' },
-        { proName: 'FOREXCOM:DJI', title: 'Dow Jones' },
-        { proName: 'FX:EURUSD', title: 'EUR/USD' },
-        { proName: 'BITSTAMP:BTCUSD', title: 'Bitcoin' },
-        { proName: 'BITSTAMP:ETHUSD', title: 'Ethereum' },
-        { proName: 'CMCMARKETS:GOLD', title: 'Gold' },
-      ],
-      showSymbolLogo: true,
-      isTransparent: true,
-      displayMode: 'adaptive',
-      colorTheme: 'dark',
-      locale: 'en',
-    });
-
-    // Append elements
-    widgetRef.current.appendChild(widgetContainer);
-    widgetRef.current.appendChild(script);
-
-    return () => {
-      if (widgetRef.current) {
-        widgetRef.current.innerHTML = '';
-      }
-    };
-  }, [mounted]);
-
   return (
     <div
-      ref={mounted ? widgetRef : undefined}
-      className="tradingview-widget-container"
       style={{
         position: 'fixed',
         top: 0,
@@ -67,11 +43,14 @@ export function TickerTape() {
         overflow: 'hidden',
       }}
     >
-      {/* Placeholder while widget loads */}
-      {!mounted && (
-        <div className="flex items-center justify-center h-full text-slate-400 text-sm">
-          Loading market data...
-        </div>
+      {mounted && (
+        <tv-ticker-tape
+          symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,BITSTAMP:BTCUSD,BITSTAMP:ETHUSD,CMCMARKETS:GOLD"
+          color-theme="dark"
+          is-transparent="true"
+          display-mode="adaptive"
+          locale="en"
+        />
       )}
     </div>
   );
