@@ -1,21 +1,24 @@
 import { useEffect, useRef, useState } from 'react';
 
 export function TickerTape() {
-  const containerRef = useRef<HTMLDivElement>(null);
-  const scriptLoaded = useRef(false);
   const [mounted, setMounted] = useState(false);
+  const widgetRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
   useEffect(() => {
-    if (!mounted) return;
-    if (scriptLoaded.current || !containerRef.current) return;
-    if (containerRef.current.querySelector('script')) return;
+    if (!mounted || !widgetRef.current) return;
 
-    scriptLoaded.current = true;
+    // Clear previous content
+    widgetRef.current.innerHTML = '';
 
+    // Create widget container
+    const widgetContainer = document.createElement('div');
+    widgetContainer.className = 'tradingview-widget-container__widget';
+
+    // Create and configure script
     const script = document.createElement('script');
     script.src = 'https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js';
     script.async = true;
@@ -37,24 +40,39 @@ export function TickerTape() {
       locale: 'en',
     });
 
-    containerRef.current.appendChild(script);
-  }, [mounted]);
+    // Append elements
+    widgetRef.current.appendChild(widgetContainer);
+    widgetRef.current.appendChild(script);
 
-  if (!mounted) {
-    return (
-      <div
-        className="fixed top-0 left-0 right-0 z-[60] h-[46px]"
-        style={{ backgroundColor: '#131722', borderBottom: '1px solid #2a3550' }}
-      />
-    );
-  }
+    return () => {
+      if (widgetRef.current) {
+        widgetRef.current.innerHTML = '';
+      }
+    };
+  }, [mounted]);
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] h-[46px] tradingview-widget-container"
-      style={{ backgroundColor: '#131722', borderBottom: '1px solid #2a3550' }}
+      ref={mounted ? widgetRef : undefined}
+      className="tradingview-widget-container"
+      style={{
+        position: 'fixed',
+        top: 0,
+        left: 0,
+        right: 0,
+        height: '46px',
+        backgroundColor: '#131722',
+        borderBottom: '1px solid #2a3550',
+        zIndex: 60,
+        overflow: 'hidden',
+      }}
     >
-      <div className="tradingview-widget-container__widget h-full" ref={containerRef}></div>
+      {/* Placeholder while widget loads */}
+      {!mounted && (
+        <div className="flex items-center justify-center h-full text-slate-400 text-sm">
+          Loading market data...
+        </div>
+      )}
     </div>
   );
 }
