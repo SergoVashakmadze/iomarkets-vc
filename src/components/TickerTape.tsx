@@ -51,10 +51,10 @@ export function TickerTape() {
 
   return (
     <div
-      className="fixed top-0 left-0 right-0 z-[60] tradingview-widget-container"
+      className="fixed top-0 left-0 right-0 z-[60] h-[46px] tradingview-widget-container"
       style={{ backgroundColor: '#131722', borderBottom: '1px solid #2a3550' }}
     >
-      <div className="tradingview-widget-container__widget" ref={containerRef}></div>
+      <div className="tradingview-widget-container__widget h-full" ref={containerRef}></div>
     </div>
   );
 }
