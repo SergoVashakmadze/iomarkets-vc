@@ -7,7 +7,7 @@ const ecosystemDomains = [
   { name: 'IoMarkets.io', subtitle: 'AI-Powered Web3 Capital Markets', url: 'https://iomarkets.io', icon: '📈' },
   { name: 'IoMarkets.money', subtitle: 'Digital Money, Stablecoins & Payments', url: 'https://iomarkets.money', icon: '💰' },
   { name: 'IoMarkets.xyz', subtitle: 'Digital Collectibles & NFT Platform', url: 'https://iomarkets.xyz', icon: '🎨' },
-  { name: 'IoMarkets.com', subtitle: 'Advanced Cryptocurrency Trading Exchange', url: 'https://iomarkets.com', icon: '💹' },
+  { name: 'IoMarkets.pro', subtitle: 'Universal Exchange - Pro Trading Suite', url: 'https://iomarkets.pro', icon: '💹' },
   { name: 'IoMarkets.ai', subtitle: 'AI-Powered Markets Intelligence', url: 'https://iomarkets.ai', icon: '🤖' },
   { name: 'IoMarkets.co', subtitle: 'Corporate Finance & Investor Relations', url: 'https://iomarkets.co', icon: '🏢' },
   { name: 'IoMarkets.vc', subtitle: 'Venture Capital Investment Fund', url: 'https://iomarkets.vc', icon: '🚀', current: true },
