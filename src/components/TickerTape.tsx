@@ -5,10 +5,8 @@ declare global {
     interface IntrinsicElements {
       'tv-ticker-tape': React.DetailedHTMLProps<React.HTMLAttributes<HTMLElement> & {
         symbols?: string;
-        'color-theme'?: string;
-        'is-transparent'?: string;
-        'display-mode'?: string;
-        locale?: string;
+        'hide-chart'?: boolean;
+        'item-size'?: string;
       }, HTMLElement>;
     }
   }
@@ -18,7 +16,6 @@ export function TickerTape() {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Load the TradingView web component script
     const existingScript = document.querySelector('script[src*="tv-ticker-tape.js"]');
     if (!existingScript) {
       const script = document.createElement('script');
@@ -46,10 +43,6 @@ export function TickerTape() {
       {mounted && (
         <tv-ticker-tape
           symbols="FOREXCOM:SPXUSD,FOREXCOM:NSXUSD,FOREXCOM:DJI,FX:EURUSD,BITSTAMP:BTCUSD,BITSTAMP:ETHUSD,CMCMARKETS:GOLD"
-          color-theme="dark"
-          is-transparent="true"
-          display-mode="adaptive"
-          locale="en"
         />
       )}
     </div>
