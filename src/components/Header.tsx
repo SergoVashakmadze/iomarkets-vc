@@ -164,10 +164,7 @@ export function Header() {
                           </div>
           </nav>
         </div>
-      </header>
-
-      {/* Spacer for fixed header + ticker */}
-      <div className="h-[110px]" />
+      </header>
     </>
   );
 }

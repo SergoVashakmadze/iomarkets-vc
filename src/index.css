@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Layout heights - consistent across all domains */
+:root {
+  --ticker-height: 46px;
+  --header-height: 64px;
+}
+
+/* Content padding for fixed header - replaces spacer div */
+.content-padding {
+  padding-top: calc(var(--ticker-height) + var(--header-height));
+}
+
+
 /* ========================================
    IoMarkets.vc Venture Capital Theme
    Teal/Emerald Investment Theme
