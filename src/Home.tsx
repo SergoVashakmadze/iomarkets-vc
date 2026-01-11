@@ -188,6 +188,7 @@ const IoMarketsVC: React.FC = () => {
                 <span className="gradient-text-animated-cyan font-bold">Innovation</span>
                 <span> meets </span>
                 <span className="gradient-text-animated-green font-bold">Returns</span>
+                <span className="text-[#14B8A6] text-base sm:text-lg lg:text-xl font-bold align-super ml-1">™</span>
               </motion.p>
 
               {/* CTA Buttons */}
@@ -197,16 +198,16 @@ const IoMarketsVC: React.FC = () => {
                 transition={{ duration: 0.6, delay: 0.6 }}
                 className="flex flex-col sm:flex-row gap-4 justify-center pt-4"
               >
-                <button className="group relative bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 hover:from-teal-400 hover:via-emerald-400 hover:to-cyan-400 text-white px-10 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-lg shadow-teal-500/40 hover:shadow-emerald-500/50 hover:scale-105 overflow-hidden">
+                <a href="mailto:info@iomarkets.org" className="group relative bg-gradient-to-r from-teal-500 via-emerald-500 to-cyan-500 hover:from-teal-400 hover:via-emerald-400 hover:to-cyan-400 text-white px-10 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 shadow-lg shadow-teal-500/40 hover:shadow-emerald-500/50 hover:scale-105 overflow-hidden">
                   <span className="relative z-10 flex items-center gap-2">
                     <Rocket className="w-5 h-5" />
                     Submit Your Pitch
                   </span>
-                </button>
-                <button className="glass hover:bg-white/15 text-white px-10 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border border-white/20 hover:border-teal-400/50 hover:scale-105">
+                </a>
+                <a href="mailto:info@iomarkets.org" className="glass hover:bg-white/15 text-white px-10 py-4 rounded-xl font-semibold transition-all flex items-center justify-center gap-2 border border-white/20 hover:border-teal-400/50 hover:scale-105">
                   <Eye className="w-5 h-5" />
                   For Entrepreneurs
-                </button>
+                </a>
               </motion.div>
 
               {/* Stats Row */}
